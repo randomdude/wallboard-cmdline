@@ -27,22 +27,22 @@ HANDLE openport(char * port)
 
 void printWindowsError(DWORD errorCode)
 {
-		char* errorText = NULL;
+	char* errorText = NULL;
 
-		FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,   NULL,
-		errorCode, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&errorText,  0,  NULL);
+	FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,   NULL,
+	errorCode, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&errorText,  0,  NULL);
 
-		if ( NULL == errorText )
-		{
-			// Uhoh, FormatMessage has failed. Fallback to just displaying the error code - the user will have to sort it out.
-			printf("GetLastError reported error code %d\n", errorCode); 
-		}
-		else
-		{
-			// Okay, we got an error message.
-			printf("Error %d: '%s'\n", errorCode, errorText); 
-			LocalFree(errorText);
-		}
+	if ( NULL == errorText )
+	{
+		// Uhoh, FormatMessage has failed. Fallback to just displaying the error code - the user will have to sort it out.
+		printf("GetLastError reported error code %d\n", errorCode); 
+	}
+	else
+	{
+		// Okay, we got an error message.
+		printf("Error %d: '%s'\n", errorCode, errorText); 
+		LocalFree(errorText);
+	}
 }
 
 // displays message in sayit on all wallboards on handle 'port'. Set special to 0xff for no special mode. 
