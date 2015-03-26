@@ -1,0 +1,9 @@
+This is a simple test application for controlling Spectrum-branded wallboard/LED sign displays via a serial port.
+
+It is quite basic, and doesn't use all of the wallboard's capabilities. It supports showing a single message (via the "priority file").
+
+The following features are implemented:
+	* Set message vertical position
+	* Set message colour
+	* Set message style
+	* Set message 'special' style (eg. animations)
